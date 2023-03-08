@@ -22,9 +22,17 @@ public class FieldTripDAO {
 	public List<FieldTripDTO> selectCategoryAll(Map<String, Object> pageMap) {
 		return sqlSession.selectList("fieldTrip.selectCategoryAll", pageMap);
 	}
+	
+	public List<FieldTripDTO> searchEngineSelectAll(Map<String, Object> pageMap) {
+		return sqlSession.selectList("fieldTrip.searchEngineSelectAll", pageMap);
+	}
 
 	public Long getTotal(Long categoryId) {
 		return sqlSession.selectOne("fieldTrip.getTotal", categoryId);
+	}
+	
+	public Long getTotalKeyword(String keyword) {
+		return sqlSession.selectOne("fieldTrip.getTotalKeyword", keyword);
 	}
 	
 	public FieldTripDetailVO fieldTripDetail(Long fieldTripId) {

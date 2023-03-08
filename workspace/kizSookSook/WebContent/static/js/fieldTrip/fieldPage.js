@@ -21,7 +21,6 @@ function change(e, fieldTripId) {
     }
 }
 
-
 showCategoryList();
 
 function showCategoryList() {
