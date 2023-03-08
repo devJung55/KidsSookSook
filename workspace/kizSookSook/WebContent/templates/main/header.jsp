@@ -24,7 +24,7 @@
 				</a>
 				<div></div>
 				<div style="flex-grow: 1;"></div>
-				<form class="search">
+				<form class="search" name="searchForm" action="${pageContext.request.contextPath}/searchAction.main?keyword=${keyword}">
 					<div class="search-d">
 						<input type="text" placeholder="검색어를 입력하세요" class="search-input" maxlength="30">
                                 <!-- 검색 이미지 -->
@@ -151,6 +151,7 @@
                                 <div class="dropdown-container">
                                     <button type="button" class="category-s" onclick="dp_menu()">전체 카테고리</button>
                                     <div style="display: none;" id="drop-content">
+                                    		<a href="javascript:location.href='${pageContext.request.contextPath}/fieldTripMainAction.fieldTrip'">카테고리메인</a>
                                             <a href="javascript:location.href='${pageContext.request.contextPath}/connectCategoryPageAction.fieldTrip?categoryId=1&categoryName=science'"'>과학IT</a>
                                             <a href="javascript:location.href='${pageContext.request.contextPath}/connectCategoryPageAction.fieldTrip?categoryId=2&categoryName=mike'">방송</a>
                                             <a href="javascript:location.href='${pageContext.request.contextPath}/connectCategoryPageAction.fieldTrip?categoryId=3&categoryName=study'">사회</a>
@@ -277,6 +278,14 @@
 </c:choose>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<script>
+const $map = $(".search-svg");
+
+$map.on("click", function(){
+	document.searchForm.submit();
+});
+
+</script>
 <script src="${pageContext.request.contextPath}/static/js/mainpage/dropdown.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/joinLogin/login/login.js""></script>
 </html>

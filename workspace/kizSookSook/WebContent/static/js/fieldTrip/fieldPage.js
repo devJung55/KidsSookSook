@@ -25,6 +25,7 @@ function change(e, fieldTripId) {
     }
 }
 
+
 function checkLike(fieldTripId) {
 	if(!`${userIdSession}`) {
 		return false;

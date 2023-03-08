@@ -21,8 +21,6 @@ public class MainFrontController extends HttpServlet {
 		String target = uri.replace(contextPath, "").split("\\.")[0];
 		Result result = null;
 		
-		System.out.println(target);
-		
 //		메인페이지 이동
 		if(target.equals("/main")){
 			result = new Result();
@@ -30,6 +28,12 @@ public class MainFrontController extends HttpServlet {
 			result.setPath("/templates/main/main.jsp");
 		} else if(target.equals("/seachAction")) {
 			result = new SearchActionController().execute(req, resp);
+			
+		} else if(target.equals("/searchLikeInsertAction")) {
+			new SearchLikeInsertActionController().execute(req, resp);
+			
+		} else if(target.equals("/searchLikeDeleteAction")) {
+			new SearchLikeDeleteActionController().execute(req, resp);
 			
 		} else {
 			
